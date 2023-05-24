@@ -1,0 +1,100 @@
+<mat-card>
+    <h1><b>Add Student</b></h1>
+    <hr>
+    <form [formGroup]="studentForm">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                
+                    <mat-form-field appearance="outline">
+                        <mat-label>Student Name</mat-label>
+                        <input matInput type="text" formControlName="studentName" placeholder="Student Name">
+                    </mat-form-field>
+               
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Student Email</mat-label>
+                    <input matInput type="text" formControlName="studentEmail" placeholder="Student Email">
+                </mat-form-field>
+            </div>
+           </div>
+
+           <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Student Mobile</mat-label>
+                    <input matInput type="number" formControlName="studentMobile" placeholder="Student Mobile">
+                </mat-form-field>
+            </div>
+           </div>
+
+           <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Room No</mat-label>
+                    <input matInput type="number" formControlName="roomNo" placeholder="Room NO">
+                    
+                </mat-form-field>
+            </div>
+           </div>
+
+           <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Cabin No</mat-label>
+                    <input matInput type="number" formControlName="cabinNo" placeholder="Cabin NO">
+                    
+                </mat-form-field>
+            </div>
+           </div>
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>MBBS batch</mat-label>
+                    <input matInput type="text" formControlName="mbbsBatch" placeholder="MBBS Batch">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button type="button" class="button image-upload-button" mat-raised-button
+                            (click)="filePicker.click()">
+                            <mat-icon>image</mat-icon> Choose file
+                        </button>
+                        <input type="file" #filePicker (change)="onFileSelected($event)">
+                    </div>
+                    <div class="col-sm-3" *ngIf="showImage">
+                        <div class="image-show">
+                            <img [src]="Url+ '/upload/'+ imagePath" class="image-show">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div *ngIf="imagePreview !== '' && imagePreview">
+                            <img [src]="imagePreview" class="image-preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1">
+                <button mat-raised-button type="button" color="warn" [routerLink]="['/admin/students']" routerLinkActive="router-link-active" >Cancel</button>
+            </div>
+            <div class="col-sm-1">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </form>
+</mat-card>

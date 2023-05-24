@@ -1,0 +1,74 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>DBMCI Admin</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/admin']" routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{exact: true}">
+      &nbsp;&nbsp;<mat-icon>dashboard</mat-icon>&nbsp;&nbsp; Dashboard</a>
+
+      <a mat-list-item [routerLink]="['/admin/students']" routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{exact: true}">
+      &nbsp;&nbsp;<mat-icon>supervised_user_circle</mat-icon>&nbsp;&nbsp; Students</a>
+
+      <mat-accordion class="app-nav-accordion">
+        <mat-expansion-panel class="mat-elevation-z0" style="background-color:transparent;"
+          routerLinkActive="router-link-active">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>settings</mat-icon>
+              <div>&nbsp;&nbsp;&nbsp;Masters</div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="['states']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: false}">
+              &nbsp;&nbsp;<mat-icon>library_books</mat-icon>&nbsp;&nbsp; States</a>
+            <a mat-list-item [routerLink]="['organisations']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: false}">
+              &nbsp;&nbsp;<mat-icon>drive_file_rename_outline</mat-icon>&nbsp;&nbsp; Organisations</a>
+            <a mat-list-item [routerLink]="['centers/new-center']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: false}">
+              &nbsp;&nbsp;<mat-icon>drive_file_rename_outline</mat-icon>&nbsp;&nbsp; Centers</a>
+            <a mat-list-item [routerLink]="['courses']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: false}">
+              &nbsp;&nbsp;<mat-icon>drive_file_rename_outline</mat-icon>&nbsp;&nbsp; Courses</a>
+            <a mat-list-item [routerLink]="['questions']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: false}">
+              &nbsp;&nbsp;<mat-icon>drive_file_rename_outline</mat-icon>&nbsp;&nbsp; Batchs</a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-card color="primary" style="height:50px;background-color:blue" >
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span style="color:white">Dashboard</span>
+
+      <p class="badge">
+        <mat-icon matBadge="5">notifications</mat-icon>
+      </p>
+
+      <button class="admenu" mat-button [matMenuTriggerFor]="menu"> Admin <mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Change Password</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
+
+    </mat-card>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

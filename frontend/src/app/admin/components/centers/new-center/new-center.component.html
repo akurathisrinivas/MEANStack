@@ -1,0 +1,54 @@
+<mat-card > 
+    <h1><b>Add Center</b></h1>
+    <hr>
+    <form [formGroup]="centerForm" style="text-align: center;">
+      
+                
+                    <!-- <mat-form-field appearance="outline" style="width: 400px;">
+                        <mat-label>State</mat-label>
+                        <input matInput type="text" formControlName="state" placeholder="State">
+                    </mat-form-field> -->
+
+                    <mat-form-field appearance="fill" >
+                        <mat-label>Select State</mat-label>
+                        <mat-select  formControlName="state" >
+                          <mat-option>None</mat-option>
+                          <mat-option  *ngFor="let state of stateData" [value]="state._id" (click)="getOrganistions(state._id)">{{state.stateName}}</mat-option>
+                         
+                        </mat-select>
+                      </mat-form-field>
+                      
+            
+                    <br>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Select Organisation</mat-label>
+                <mat-select  formControlName="organisation" >
+                    <mat-option>None</mat-option>
+                    <mat-option  *ngFor="let org of orgData" [value]="org._id" >{{org.organisationName}}</mat-option>
+                </mat-select>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Center Name</mat-label>
+                    <input matInput type="text" formControlName="centerName" placeholder="Center Name">
+                </mat-form-field>
+            
+
+           
+
+          
+
+           
+        
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1">
+                <button mat-raised-button type="button" color="warn" [routerLink]="['/admin/organisations']" routerLinkActive="router-link-active" >Cancel</button>
+            </div>
+            <div class="col-sm-1">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </form>
+</mat-card>

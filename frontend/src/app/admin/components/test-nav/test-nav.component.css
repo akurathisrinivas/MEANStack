@@ -1,0 +1,61 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+mat-nav-list a.router-link-active{
+  color: white;
+  background-color: #2c4ba7;
+  border-radius: 10px 10px 10px 10px;
+}
+mat-nav-list a{
+  color: black;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display:inline-block;
+    min-width:10px;
+    padding:18px 180px;
+    font-size:12px;
+    font-weight:700;
+    line-height:1;
+    color:#fff;
+    text-align:center;
+    white-space:nowrap;
+    vertical-align:baseline;
+    
+    border-radius:10px;
+       
+}
+
+.admenu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display:inline-block;
+    min-width:10px;
+    padding:10px 50px;
+   
+    
+    color:#fff;
+    text-align:center;
+    white-space:nowrap;
+    vertical-align:baseline;
+    
+    border-radius:10px;
+}
